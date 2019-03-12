@@ -1,6 +1,6 @@
 package responses;
 
-public class GenericResponse {
+public class GenericResponse implements Response{
     private String status;
     private String message;
 

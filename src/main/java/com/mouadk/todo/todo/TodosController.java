@@ -42,4 +42,21 @@ public class TodosController {
         });
         return new GenericResponse("success","Todo is done!");
     }
+
+    @DeleteMapping("/delete/{id}")
+    public @ResponseBody Response deleteTodo(@PathVariable int id){
+        todoRepo.deleteById(id);
+        return  new GenericResponse("success","Todo deleted successfully!");
+    }
+
+    @PutMapping("/edit/{id}")
+    public @ResponseBody
+    GenericResponse editTodo(@PathVariable("id") int id,@RequestBody Todo old){
+        todoRepo.findById(id).ifPresent(todo -> {
+            todo.setText(old.getText());
+            todoRepo.save(todo);
+        });
+        return new GenericResponse("success","Todo is done!");
+    }
+
 }
