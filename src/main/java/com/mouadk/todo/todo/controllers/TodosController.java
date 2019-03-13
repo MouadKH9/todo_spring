@@ -1,11 +1,13 @@
-package com.mouadk.todo.todo;
+package com.mouadk.todo.todo.controllers;
 
-import exceptions.TodoNotFound;
+import com.mouadk.todo.todo.entities.Todo;
+import com.mouadk.todo.todo.repositories.TodoRepository;
+import com.mouadk.todo.todo.exceptions.TodoNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import responses.CreatedResponse;
-import responses.GenericResponse;
-import responses.Response;
+import com.mouadk.todo.todo.responses.CreatedResponse;
+import com.mouadk.todo.todo.responses.GenericResponse;
+import com.mouadk.todo.todo.responses.Response;
 
 import java.util.Optional;
 
