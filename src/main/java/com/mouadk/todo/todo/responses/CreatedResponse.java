@@ -1,4 +1,4 @@
-package responses;
+package com.mouadk.todo.todo.responses;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

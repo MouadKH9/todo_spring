@@ -1,4 +1,4 @@
-package com.mouadk.todo.todo;
+package com.mouadk.todo.todo.entities;
 
 
 import javax.persistence.Entity;
@@ -12,13 +12,15 @@ public class Todo {
     private int id;
     private String text;
     private boolean done;
+    private int userId;
 
     Todo(){}
 
-    public Todo(int id, String text, boolean done) {
+    public Todo(int id, String text, boolean done,int userId) {
         this.id = id;
         this.text = text;
         this.done = done;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -43,5 +45,13 @@ public class Todo {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
