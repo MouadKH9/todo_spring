@@ -1,4 +1,4 @@
-package com.mouadk.todo.todo.entities;
+package com.mouadk.todo.entities;
 
 
 import javax.persistence.Entity;

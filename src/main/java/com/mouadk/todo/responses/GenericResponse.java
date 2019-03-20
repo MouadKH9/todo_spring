@@ -1,4 +1,4 @@
-package com.mouadk.todo.todo.responses;
+package com.mouadk.todo.responses;
 
 public class GenericResponse implements Response{
     private String status;
