@@ -1,5 +1,4 @@
-package com.mouadk.todo.todo;
-
+package todo.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

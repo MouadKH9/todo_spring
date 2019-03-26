@@ -1,15 +1,19 @@
-package com.mouadk.todo.todo;
+package todo.controllers;
 
-import exceptions.TodoNotFound;
+import todo.exceptions.TodoNotFound;
+import todo.models.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import responses.CreatedResponse;
-import responses.GenericResponse;
-import responses.Response;
+import todo.repos.TodoRepository;
+import todo.responses.CreatedResponse;
+import todo.responses.GenericResponse;
+import todo.responses.Response;
 
 import java.util.Optional;
 
 @RestController
+
+@CrossOrigin(origins = "http://localhost:4200")
 public class TodosController {
     @Autowired
     private TodoRepository todoRepo;
@@ -20,7 +24,8 @@ public class TodosController {
     }
 
     @GetMapping("todo/{id}")
-    public @ResponseBody Todo getTodo(@PathVariable int id){
+    public @ResponseBody
+    Todo getTodo(@PathVariable int id){
         Optional<Todo> opt = todoRepo.findById(id);
         if(!opt.isPresent()) throw new TodoNotFound(String.format("Couldn't find the user %d",id));
         return opt.get();
@@ -37,7 +42,7 @@ public class TodosController {
     public @ResponseBody
     GenericResponse todoDone(@PathVariable("id") int id){
         todoRepo.findById(id).ifPresent(todo -> {
-            todo.setDone(true);
+            todo.setDone(!todo.isDone());
             todoRepo.save(todo);
         });
         return new GenericResponse("success","Todo is done!");

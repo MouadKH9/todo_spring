@@ -1,4 +1,4 @@
-#Todo RESTful API in Java Spring
+#todo.models.Todo RESTful API in Java Spring
 
 ## Overview
 
